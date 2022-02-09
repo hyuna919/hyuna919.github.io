@@ -1,0 +1,82 @@
+---
+title: Gradle 그래들
+categories:
+- 배포
+excerpt: |
+  A pot still is a type of still used in distilling spirits such as whisky or brandy. Heat is applied directly to the pot containing the wash (for whisky) or wine (for brandy).
+feature_text: |
+  ## The Pot Still
+  The modern pot still is a descendant of the alembic, an earlier distillation device
+feature_image: "https://picsum.photos/2560/600?image=733"
+image: "https://picsum.photos/2560/600?image=733"
+---
+
+# 예외처리
+
+# 의문
+
+- 그냥 직접 출력이나 로그를 하는게 아니라 Exception을 해야할까
+    - → Exception으로 인한 프로그램 종료를 막으려면 Exception이나 RuntimeException을 상속받아야하는듯
+- Custom Exception은 왜 써야할까
+
+# Error와 Exception
+
+- Error
+    - 하드웨어의 오동작이나 고장으로 응용프로그램 실행 오류가 발생하는 것
+    - 자바에서는 JVM에 문제가 생겼다는 의미
+- Exception
+    - 사용자의 잘못된 조작 of 개발자의 잘못된 코딩으로 발생하는 오류
+- 공통점  : 발생시 프로그램 종료
+- 차이점 : Exception은 예외 처리(Exception Handling)을 통해 정상 실행 상태를 유지할 수 있다.
+
+# Exception의 종류
+
+## Checked Exception(Exception)
+
+- 컴파일러 체크 예외
+- 자바 컴파일러는 컴파일시 일반 예외가 발생할 가능성이 있는 코드 발견시 컴파일 오류을 발생시켜 강제적으로 예외 처리 코드 작성을 요구한다.
+- 
+
+## Unchecked Exception(Runtime Exception) → 같은건가?
+
+Runtime Exception은 컴파일러가 체크하지 않는다.
+
+→ 개발자의 경험에 의해 (=사용중에 에러가 나면)cjflgksek
+
+## Custom Exception
+
+- 애플리케이션 예외를 처리하기 위함
+    - → ex) 은행에서 예금보다 많은 돈을 출금하려한다.
+- Exception이나 RuntimeException 중 상황에 적합한 것을 상속받으면 된다.
+
+### 구성
+
+- 이름은 Exception으로 끝내는 것을 권장
+- 메소드 선언을 포함할 수 있지만 보통 생성자만 포함한다.
+- 생성자는 일반적으로 두 개를 선언한다.
+    - 매개 변수가 없는 기본 생성자
+    - 예외 발생 원인(msg) 전달 위한 String타입 매개 변수를 가지느 ㄴ생성자
+
+# 예외처리
+
+## try-catch-finally
+
+- Exception / Runtime Exception 발생시 예외처리
+- 멀티 catch
+    - 자바 7부터 하나의 catch블록에서 여러개의 예외 처리 가능해짐
+    
+    ```bash
+    catch(ArrayIndexOutOfBoundsException | NumberFormatException e)
+    ```
+    
+- try-with-resources
+
+## throws
+
+- 예외 떠넘기기
+- 메소드를 호출한 곳으로 예외를 떠넘길 수 있다.→장점이 뭐야?
+- main()에서 throws사용시 JVM이 받는다.
+JVM은 Exception을 콘솔에 출력하는 것으로 처리를 대신한다.
+
+# 참고
+[[Java] 자바의 예외처리 방법](https://scshim.tistory.com/238)
